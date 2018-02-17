@@ -18,19 +18,27 @@ var winningScore = 100;
 //(position of coin from left, coin position from top)
 function addItems() {
   items = game.add.physicsGroup();
-  createItem(375, 300, 'coin');  
-  createItem(375, 500, 'coin');
-  createItem(575, 500, 'coin');  
+  createItem(200, 50, 'coin');
+  createItem(750, 25, 'coin');
+  createItem(100, 150, 'coin');
+  createItem(150, 150, 'coin');
+  createItem(0, 400, 'coin');
+  createItem(350, 300, 'coin');  
+  createItem(375, 450, 'coin');
+  createItem(700, 250, 'coin');
+  createItem(450, 120, 'coin');
+  createItem(750, 500, 'coin');  
+  createItem(500, 550, 'coin');
 }
 
 // add platforms to the game
 //.create is a method provided by the phaser library
 function addPlatforms() {
   platforms = game.add.physicsGroup();
-  platforms.create(100, 100, 'platform');
-  platforms.create(0, 450, 'platform');
-  platforms.create(300, 500, 'platform');
   platforms.create(0, 200, 'platform');
+  platforms.create(0, 450, 'platform');
+  platforms.create(100, 100, 'platform');
+  platforms.create(300, 500, 'platform');
   platforms.create(600, 75, 'platform'); 
   platforms.create(400, 175, 'platform'); 
   platforms.create(300, 350, 'platform');
