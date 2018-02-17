@@ -19,30 +19,33 @@ var winningScore = 100;
 function addItems() {
   items = game.add.physicsGroup();
   createItem(200, 50, 'coin');
-  createItem(750, 25, 'coin');
-  createItem(100, 150, 'coin');
+  createItem(750, 25, 'star');
+  createItem(725, 25, 'star');
+  createItem(75, 150, 'poison');
   createItem(150, 150, 'coin');
   createItem(0, 400, 'coin');
+  createItem(70, 400, 'poison');
   createItem(350, 300, 'coin');  
   createItem(375, 450, 'coin');
+  createItem(750, 250, 'poison');
   createItem(700, 250, 'coin');
   createItem(450, 120, 'coin');
   createItem(750, 500, 'coin');  
-  createItem(500, 550, 'coin');
+  createItem(500, 550, 'poison');
 }
 
 // add platforms to the game
 //.create is a method provided by the phaser library
 function addPlatforms() {
   platforms = game.add.physicsGroup();
-  platforms.create(0, 200, 'platform');
+  platforms.create(0, 200, 'platform2');
   platforms.create(0, 450, 'platform');
   platforms.create(100, 100, 'platform');
-  platforms.create(300, 500, 'platform');
   platforms.create(600, 75, 'platform'); 
-  platforms.create(400, 175, 'platform'); 
+  platforms.create(400, 175, 'platform2'); 
   platforms.create(300, 350, 'platform');
-  platforms.create(600, 300, 'platform'); 
+  platforms.create(600, 300, 'platform2'); 
+  platforms.create(300, 500, 'platform2');
   platforms.create(600, 550, 'platform');  
   platforms.setAll('body.immovable', true);
 }
@@ -87,11 +90,15 @@ window.onload = function () {
     
     //Load images
     game.load.image('platform', 'images/platform_1.png');
+    game.load.image('platform2', 'images/platform_2.png');
     
     //Load spritesheets
-    game.load.spritesheet('player', 'images/chalkers.png', 48, 62);
+    //The first number, 48, is the width of each frame, the second number, 62, is the height
+    game.load.spritesheet('player', 'images/chalkers.png', 48, 62); 
     game.load.spritesheet('coin', 'images/coin.png', 36, 44);
     game.load.spritesheet('badge', 'images/badge.png', 42, 54);
+    game.load.spritesheet('poison', 'images/poison.png', 32, 32);
+    game.load.spritesheet('star', 'images/star.png', 32, 32);
   }
 
   // initial game set up
