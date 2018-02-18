@@ -10,7 +10,7 @@ var text;
 var winningMessage;
 var won = false;
 var currentScore = 0;
-var winningScore = 100;
+var winningScore >= 100;
 
 // add collectable items to the game
 // Left to right goes from 0 to 800
@@ -65,13 +65,20 @@ function createBadge() {
   badge.animations.play('spin', 10, true);
 }
 
+// handles players score
 // when the player collects an item on the screen
 function itemHandler(player, item) {
   item.kill();
-  currentScore = currentScore + 10;
-  if (currentScore === winningScore) {
-      createBadge();
+  if (item.key === 'coin') {
+     currentScore = currentScore + 10;
+  } else if (item.key === 'poison') {
+      currentScore = currentScore - 25;
+  } else if (item.key === 'star') {
+      currentScore = currentScore + 25;
   }
+    if (currentScore === winningScore) {
+        createBadge();
+    }
 }
 
 // when the player collects the badge at the end of the game
