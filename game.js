@@ -10,18 +10,43 @@ var text;
 var winningMessage;
 var won = false;
 var currentScore = 0;
-var winningScore = 100;
+var winningScore >= 100;
 
 // add collectable items to the game
+// Left to right goes from 0 to 800
+// Top to bottom goes from 0 to 600
+//(position of coin from left, coin position from top)
 function addItems() {
   items = game.add.physicsGroup();
-  createItem(375, 300, 'coin');
+  createItem(200, 50, 'coin');
+  createItem(750, 25, 'star');
+  createItem(725, 25, 'star');
+  createItem(75, 150, 'poison');
+  createItem(150, 150, 'coin');
+  createItem(0, 400, 'coin');
+  createItem(70, 400, 'poison');
+  createItem(350, 300, 'coin');  
+  createItem(375, 450, 'coin');
+  createItem(750, 250, 'poison');
+  createItem(700, 250, 'coin');
+  createItem(450, 120, 'coin');
+  createItem(750, 500, 'coin');  
+  createItem(500, 550, 'poison');
 }
 
 // add platforms to the game
+//.create is a method provided by the phaser library
 function addPlatforms() {
   platforms = game.add.physicsGroup();
-  platforms.create(450, 150, 'platform');
+  platforms.create(0, 200, 'platform2');
+  platforms.create(0, 450, 'platform');
+  platforms.create(100, 100, 'platform');
+  platforms.create(600, 75, 'platform'); 
+  platforms.create(400, 175, 'platform2'); 
+  platforms.create(300, 350, 'platform');
+  platforms.create(600, 300, 'platform2'); 
+  platforms.create(300, 500, 'platform2');
+  platforms.create(600, 550, 'platform');  
   platforms.setAll('body.immovable', true);
 }
 
@@ -40,13 +65,20 @@ function createBadge() {
   badge.animations.play('spin', 10, true);
 }
 
+// handles players score
 // when the player collects an item on the screen
 function itemHandler(player, item) {
   item.kill();
-  currentScore = currentScore + 10;
-  if (currentScore === winningScore) {
-      createBadge();
+  if (item.key === 'coin') {
+     currentScore = currentScore + 10;
+  } else if (item.key === 'poison') {
+      currentScore = currentScore - 25;
+  } else if (item.key === 'star') {
+      currentScore = currentScore + 25;
   }
+    if (currentScore === winningScore) {
+        createBadge();
+    }
 }
 
 // when the player collects the badge at the end of the game
@@ -65,11 +97,15 @@ window.onload = function () {
     
     //Load images
     game.load.image('platform', 'images/platform_1.png');
+    game.load.image('platform2', 'images/platform_2.png');
     
     //Load spritesheets
-    game.load.spritesheet('player', 'images/chalkers.png', 48, 62);
+    //The first number, 48, is the width of each frame, the second number, 62, is the height
+    game.load.spritesheet('player', 'images/chalkers.png', 48, 62); 
     game.load.spritesheet('coin', 'images/coin.png', 36, 44);
     game.load.spritesheet('badge', 'images/badge.png', 42, 54);
+    game.load.spritesheet('poison', 'images/poison.png', 32, 32);
+    game.load.spritesheet('star', 'images/star.png', 32, 32);
   }
 
   // initial game set up
