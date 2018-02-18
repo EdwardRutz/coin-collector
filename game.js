@@ -10,7 +10,7 @@ var text;
 var winningMessage;
 var won = false;
 var currentScore = 0;
-var winningScore >= 100;
+var winningScore = 100;
 
 // add collectable items to the game
 // Left to right goes from 0 to 800
@@ -72,11 +72,11 @@ function itemHandler(player, item) {
   if (item.key === 'coin') {
      currentScore = currentScore + 10;
   } else if (item.key === 'poison') {
-      currentScore = currentScore - 25;
+      currentScore = currentScore - 15;
   } else if (item.key === 'star') {
       currentScore = currentScore + 25;
   }
-    if (currentScore === winningScore) {
+    if (currentScore >= winningScore) {
         createBadge();
     }
 }
@@ -155,7 +155,7 @@ window.onload = function () {
     if (jumpButton.isDown && (player.body.onFloor() || player.body.touching.down)) {
       player.body.velocity.y = -400;
     }
-    // when the player winw the game
+    // when the player wins the game
     if (won) {
       winningMessage.text = "YOU WIN!!!";
     }
