@@ -19,10 +19,10 @@ A simple Javascript game using phaser. Jump from platform to platform collecting
 </p>
 
 ## References
+- [Con Collector Tutorial via Treehouse: Introducing Javascript](https://teamtreehouse.com/library/introducing-javascript)
 - [Phaser Platform](https://phaser.io)
 - [Github: Phaser](https://github.com/photonstorm/phaser)
 - [Treehouse: Full-Stack Javascript](https://teamtreehouse.com/tracks/full-stack-javascript)
-- [Treehouse: Introducing Javascript](https://teamtreehouse.com/library/introducing-javascript)
 
 
 
